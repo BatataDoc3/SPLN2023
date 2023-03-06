@@ -1,0 +1,60 @@
+
+lit = ['gender','',]
+GENDER = F | M
+LANGUAGE = EN | ES | PT | LA
+
+DIC -> meta E
+E -> gender languages notes number remissiveEntries
+gender -> '"gender" :' GENDER
+languages -> '"languages" : \n' language
+language ->  '\t' LANGUAGE str language
+language ->
+notes -> str
+number -> NUM
+
+
+
+-------"Solução"-----
+
+area:_____________
+GA:___________
+  :___________
++ var:_______
+EN:___________
+  :___________
+PT:___________
++ var: BR
+  : __________
++ var: PT
+
+
+
+
+-------TPC-----
+- Construir um parser PLY ou Lark da gramática criada
+- Melhorar o tpc1 para ser mais orientado ao conteúdo e não ao pdf
+- Fazer um readme em cada tpc a explicar o que foi feito
+
+RS(pdf... JSON): vista (Gal -> info)
+|
+|
+v
+Queremos: RS (dic. médicos ABSTRATO: galego é representado como uma língua qualquer)
+|
+|
+v
+Ling DIC --------- tendo em conta a gramática defininda
+
+
+
+
+-----Gramática-----
+
+Dic -> meta E*
+E -> Item*
+Item -> AT-Con //atributo de conceito
+    | Lingua
+At-Con -> Id ':' val
+Lingua -> Id-ling: T* //Termo
+T -> Termo AT-T //Atributos de termo
+At-T -> '+' id: val
