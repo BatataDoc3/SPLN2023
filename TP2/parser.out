@@ -1,0 +1,335 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> Es
+Rule 1     Es -> Id Nome Genero Areas Sin Linguas Notas
+Rule 2     Id -> ID : NUMBER
+Rule 3     Nome -> ID_NOME : NOME
+Rule 4     Genero -> ID_GENERO : GENERO
+Rule 5     Areas -> ID_AREAS : AREAS
+Rule 6     Sin -> ID_SIN : TEXTO
+Rule 7     Sin -> <empty>
+Rule 8     Linguas -> ID_LINGUAS : NEWLINE Lingua
+Rule 9     Lingua -> TAB ID_LINGUA NOME NEWLINE Lingua
+Rule 10    Lingua -> <empty>
+Rule 11    Notas -> ID_NOTAS : TEXTO
+Rule 12    Notas -> <empty>
+
+Terminals, with rules where they appear
+
+:                    : 2 3 4 5 6 8 11
+AREAS                : 5
+GENERO               : 4
+ID                   : 2
+ID_AREAS             : 5
+ID_GENERO            : 4
+ID_LINGUA            : 9
+ID_LINGUAS           : 8
+ID_NOME              : 3
+ID_NOTAS             : 11
+ID_SIN               : 6
+NEWLINE              : 8 9
+NOME                 : 3 9
+NUMBER               : 2
+TAB                  : 9
+TEXTO                : 6 11
+error                : 
+
+Nonterminals, with rules where they appear
+
+Areas                : 1
+Es                   : 0
+Genero               : 1
+Id                   : 1
+Lingua               : 8 9
+Linguas              : 1
+Nome                 : 1
+Notas                : 1
+Sin                  : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Es
+    (1) Es -> . Id Nome Genero Areas Sin Linguas Notas
+    (2) Id -> . ID : NUMBER
+
+    ID              shift and go to state 3
+
+    Es                             shift and go to state 1
+    Id                             shift and go to state 2
+
+state 1
+
+    (0) S' -> Es .
+
+
+
+state 2
+
+    (1) Es -> Id . Nome Genero Areas Sin Linguas Notas
+    (3) Nome -> . ID_NOME : NOME
+
+    ID_NOME         shift and go to state 5
+
+    Nome                           shift and go to state 4
+
+state 3
+
+    (2) Id -> ID . : NUMBER
+
+    :               shift and go to state 6
+
+
+state 4
+
+    (1) Es -> Id Nome . Genero Areas Sin Linguas Notas
+    (4) Genero -> . ID_GENERO : GENERO
+
+    ID_GENERO       shift and go to state 8
+
+    Genero                         shift and go to state 7
+
+state 5
+
+    (3) Nome -> ID_NOME . : NOME
+
+    :               shift and go to state 9
+
+
+state 6
+
+    (2) Id -> ID : . NUMBER
+
+    NUMBER          shift and go to state 10
+
+
+state 7
+
+    (1) Es -> Id Nome Genero . Areas Sin Linguas Notas
+    (5) Areas -> . ID_AREAS : AREAS
+
+    ID_AREAS        shift and go to state 12
+
+    Areas                          shift and go to state 11
+
+state 8
+
+    (4) Genero -> ID_GENERO . : GENERO
+
+    :               shift and go to state 13
+
+
+state 9
+
+    (3) Nome -> ID_NOME : . NOME
+
+    NOME            shift and go to state 14
+
+
+state 10
+
+    (2) Id -> ID : NUMBER .
+
+    ID_NOME         reduce using rule 2 (Id -> ID : NUMBER .)
+
+
+state 11
+
+    (1) Es -> Id Nome Genero Areas . Sin Linguas Notas
+    (6) Sin -> . ID_SIN : TEXTO
+    (7) Sin -> .
+
+    ID_SIN          shift and go to state 16
+    ID_LINGUAS      reduce using rule 7 (Sin -> .)
+
+    Sin                            shift and go to state 15
+
+state 12
+
+    (5) Areas -> ID_AREAS . : AREAS
+
+    :               shift and go to state 17
+
+
+state 13
+
+    (4) Genero -> ID_GENERO : . GENERO
+
+    GENERO          shift and go to state 18
+
+
+state 14
+
+    (3) Nome -> ID_NOME : NOME .
+
+    ID_GENERO       reduce using rule 3 (Nome -> ID_NOME : NOME .)
+
+
+state 15
+
+    (1) Es -> Id Nome Genero Areas Sin . Linguas Notas
+    (8) Linguas -> . ID_LINGUAS : NEWLINE Lingua
+
+    ID_LINGUAS      shift and go to state 20
+
+    Linguas                        shift and go to state 19
+
+state 16
+
+    (6) Sin -> ID_SIN . : TEXTO
+
+    :               shift and go to state 21
+
+
+state 17
+
+    (5) Areas -> ID_AREAS : . AREAS
+
+    AREAS           shift and go to state 22
+
+
+state 18
+
+    (4) Genero -> ID_GENERO : GENERO .
+
+    ID_AREAS        reduce using rule 4 (Genero -> ID_GENERO : GENERO .)
+
+
+state 19
+
+    (1) Es -> Id Nome Genero Areas Sin Linguas . Notas
+    (11) Notas -> . ID_NOTAS : TEXTO
+    (12) Notas -> .
+
+    ID_NOTAS        shift and go to state 24
+    $end            reduce using rule 12 (Notas -> .)
+
+    Notas                          shift and go to state 23
+
+state 20
+
+    (8) Linguas -> ID_LINGUAS . : NEWLINE Lingua
+
+    :               shift and go to state 25
+
+
+state 21
+
+    (6) Sin -> ID_SIN : . TEXTO
+
+    TEXTO           shift and go to state 26
+
+
+state 22
+
+    (5) Areas -> ID_AREAS : AREAS .
+
+    ID_SIN          reduce using rule 5 (Areas -> ID_AREAS : AREAS .)
+    ID_LINGUAS      reduce using rule 5 (Areas -> ID_AREAS : AREAS .)
+
+
+state 23
+
+    (1) Es -> Id Nome Genero Areas Sin Linguas Notas .
+
+    $end            reduce using rule 1 (Es -> Id Nome Genero Areas Sin Linguas Notas .)
+
+
+state 24
+
+    (11) Notas -> ID_NOTAS . : TEXTO
+
+    :               shift and go to state 27
+
+
+state 25
+
+    (8) Linguas -> ID_LINGUAS : . NEWLINE Lingua
+
+    NEWLINE         shift and go to state 28
+
+
+state 26
+
+    (6) Sin -> ID_SIN : TEXTO .
+
+    ID_LINGUAS      reduce using rule 6 (Sin -> ID_SIN : TEXTO .)
+
+
+state 27
+
+    (11) Notas -> ID_NOTAS : . TEXTO
+
+    TEXTO           shift and go to state 29
+
+
+state 28
+
+    (8) Linguas -> ID_LINGUAS : NEWLINE . Lingua
+    (9) Lingua -> . TAB ID_LINGUA NOME NEWLINE Lingua
+    (10) Lingua -> .
+
+    TAB             shift and go to state 31
+    ID_NOTAS        reduce using rule 10 (Lingua -> .)
+    $end            reduce using rule 10 (Lingua -> .)
+
+    Lingua                         shift and go to state 30
+
+state 29
+
+    (11) Notas -> ID_NOTAS : TEXTO .
+
+    $end            reduce using rule 11 (Notas -> ID_NOTAS : TEXTO .)
+
+
+state 30
+
+    (8) Linguas -> ID_LINGUAS : NEWLINE Lingua .
+
+    ID_NOTAS        reduce using rule 8 (Linguas -> ID_LINGUAS : NEWLINE Lingua .)
+    $end            reduce using rule 8 (Linguas -> ID_LINGUAS : NEWLINE Lingua .)
+
+
+state 31
+
+    (9) Lingua -> TAB . ID_LINGUA NOME NEWLINE Lingua
+
+    ID_LINGUA       shift and go to state 32
+
+
+state 32
+
+    (9) Lingua -> TAB ID_LINGUA . NOME NEWLINE Lingua
+
+    NOME            shift and go to state 33
+
+
+state 33
+
+    (9) Lingua -> TAB ID_LINGUA NOME . NEWLINE Lingua
+
+    NEWLINE         shift and go to state 34
+
+
+state 34
+
+    (9) Lingua -> TAB ID_LINGUA NOME NEWLINE . Lingua
+    (9) Lingua -> . TAB ID_LINGUA NOME NEWLINE Lingua
+    (10) Lingua -> .
+
+    TAB             shift and go to state 31
+    ID_NOTAS        reduce using rule 10 (Lingua -> .)
+    $end            reduce using rule 10 (Lingua -> .)
+
+    Lingua                         shift and go to state 35
+
+state 35
+
+    (9) Lingua -> TAB ID_LINGUA NOME NEWLINE Lingua .
+
+    ID_NOTAS        reduce using rule 9 (Lingua -> TAB ID_LINGUA NOME NEWLINE Lingua .)
+    $end            reduce using rule 9 (Lingua -> TAB ID_LINGUA NOME NEWLINE Lingua .)
+

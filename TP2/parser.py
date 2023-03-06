@@ -1,49 +1,56 @@
+'''
+Conc = Conceito
+'''
+
+
 import ply.yacc as yacc
 
-def p_1(p): 
+def p_dic(p): 
     "dic: Es"
 
-def p_2(p): 
+def p_Es(p): 
     "Es: E LINHA_B Es"
 
-def p_3(p): 
+def p_Es_E(p): 
     "Es: E" 
 
-def p_4(p): 
+def p_E(p): 
     "E: ITEMS"
 
-def p_5(p): 
+def p_ITEMS(p): 
     "ITEMS: ITEM '\n' ITEMS"
 
-def p_6(p): 
+def p_ITEMS_ITEM(p): 
     "ITEMS: ITEM"
 
-def p_7(p): 
+def p_ITEM_AT_CONC(p): 
     "ITEM: AT_CONC"
 
-def p_8(p): 
+def p_ITEM_LING(p): 
     "ITEM: LING"
 
-def p_9(p): 
+def p_AT_CONC(p): 
     "AT_CONC: ID ':' VAL"
 
-def p_10(p): 
+def p_LING(p): 
     "LING: ID_LING ':' '\n' TS"
 
-def p_11(p): 
+def p_TS(p): 
     "TS: TS T"
 
-def p_12(p): 
+def p_TS_T(p): 
     "TS: T"
 
-def p_13(p): 
+def p_T(p): 
     "T: '-' VAL AT_TS"
 
-def p_14(p): 
+def p_AT_TS(p): 
     "AT_TS: AT_TS AT_T"
 
-def p_15(p): 
+def p_AT_TS_vazio(p): 
     "AT_TS: "
 
-def p_16(p): 
+def p_AT_T(p): 
     "AT_T: '\n' '+' ID ':' VAL"
+
+

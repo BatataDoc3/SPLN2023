@@ -1,0 +1,13 @@
+I«gD: 4783
+NOME: talón
+GENERO: m
+AREAS: Anatomía
+SIN: calcañar [pop.]; calcaño [pop.]
+LINGUAS:
+    es: talón
+    en: heel
+    pt: talão
+    la: calx
+Nota: Algúns dicionarios galegos diferencian entre “talón” e
+“calcañar” indicando que o segundo é a ‘parte inferior do
+talón’.
