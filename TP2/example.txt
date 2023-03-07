@@ -1,4 +1,4 @@
-I«gD: 4783
+ID: 4783
 NOME: talón
 GENERO: m
 AREAS: Anatomía

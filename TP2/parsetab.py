@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = "AREAS GENERO ID ID_AREAS ID_GENERO ID_LINGUA ID_LINGUAS ID_NOME ID_NOTAS ID_SIN NEWLINE NOME NUMBER TAB TEXTOEs : Id Nome Genero Areas Sin Linguas NotasId : ID ':' NUMBERNome : ID_NOME ':' NOMEGenero : ID_GENERO ':' GENEROAreas : ID_AREAS ':' AREASSin : ID_SIN ':' TEXTOSin : Linguas : ID_LINGUAS ':' NEWLINE LinguaLingua : TAB ID_LINGUA NOME NEWLINE LinguaLingua : Notas : ID_NOTAS ':' TEXTONotas : "
+_lr_signature = "AREAS GENERO ID ID_AREAS ID_GENERO ID_LINGUA ID_LINGUAS ID_NOME ID_NOTAS ID_SIN NEWLINE NOME NUMBER TAB TEXTODic : EntradasEntradas : Es EntradasEntradas : EsEs : Id Nome Genero Areas Sin Linguas NotasEs : Id : ID NUMBER NEWLINENome : ID_NOME ':' NOME NEWLINEGenero : ID_GENERO ':' GENERO NEWLINEAreas : ID_AREAS ':' AREAS NEWLINESin : ID_SIN ':' TEXTO NEWLINESin : Linguas : ID_LINGUAS ':' NEWLINE LinguaLingua : TAB ID_LINGUA NOME NEWLINE LinguaLingua : Notas : ID_NOTAS ':' TEXTO NEWLINENotas : "
     
-_lr_action_items = {'ID':([0,],[3,]),'$end':([1,19,23,28,29,30,34,35,],[0,-12,-1,-10,-11,-8,-10,-9,]),'ID_NOME':([2,10,],[5,-2,]),':':([3,5,8,12,16,20,24,],[6,9,13,17,21,25,27,]),'ID_GENERO':([4,14,],[8,-3,]),'NUMBER':([6,],[10,]),'ID_AREAS':([7,18,],[12,-4,]),'NOME':([9,32,],[14,33,]),'ID_SIN':([11,22,],[16,-5,]),'ID_LINGUAS':([11,15,22,26,],[-7,20,-5,-6,]),'GENERO':([13,],[18,]),'AREAS':([17,],[22,]),'ID_NOTAS':([19,28,30,34,35,],[24,-10,-8,-10,-9,]),'TEXTO':([21,27,],[26,29,]),'NEWLINE':([25,33,],[28,34,]),'TAB':([28,34,],[31,31,]),'ID_LINGUA':([31,],[32,]),}
+_lr_action_items = {'ID':([0,3,23,28,34,37,39,42,43,],[5,5,-16,-4,-14,-12,-15,-14,-13,]),'$end':([0,1,2,3,6,23,28,34,37,39,42,43,],[-5,0,-1,-3,-2,-16,-4,-14,-12,-15,-14,-13,]),'ID_NOME':([4,13,],[8,-6,]),'NUMBER':([5,],[9,]),'ID_GENERO':([7,22,],[11,-7,]),':':([8,11,15,19,24,29,],[12,16,20,25,30,33,]),'NEWLINE':([9,17,21,26,30,31,36,41,],[13,22,27,32,34,35,39,42,]),'ID_AREAS':([10,27,],[15,-8,]),'NOME':([12,40,],[17,41,]),'ID_SIN':([14,32,],[19,-9,]),'ID_LINGUAS':([14,18,32,35,],[-11,24,-9,-10,]),'GENERO':([16,],[21,]),'AREAS':([20,],[26,]),'ID_NOTAS':([23,34,37,42,43,],[29,-14,-12,-14,-13,]),'TEXTO':([25,33,],[31,36,]),'TAB':([34,42,],[38,38,]),'ID_LINGUA':([38,],[40,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'Es':([0,],[1,]),'Id':([0,],[2,]),'Nome':([2,],[4,]),'Genero':([4,],[7,]),'Areas':([7,],[11,]),'Sin':([11,],[15,]),'Linguas':([15,],[19,]),'Notas':([19,],[23,]),'Lingua':([28,34,],[30,35,]),}
+_lr_goto_items = {'Dic':([0,],[1,]),'Entradas':([0,3,],[2,6,]),'Es':([0,3,],[3,3,]),'Id':([0,3,],[4,4,]),'Nome':([4,],[7,]),'Genero':([7,],[10,]),'Areas':([10,],[14,]),'Sin':([14,],[18,]),'Linguas':([18,],[23,]),'Notas':([23,],[28,]),'Lingua':([34,42,],[37,43,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,17 +26,21 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> Es","S'",1,None,None,None),
-  ('Es -> Id Nome Genero Areas Sin Linguas Notas','Es',7,'p_es','my_parser.py',7),
-  ('Id -> ID : NUMBER','Id',3,'p_Id','my_parser.py',11),
-  ('Nome -> ID_NOME : NOME','Nome',3,'p_Nome','my_parser.py',15),
-  ('Genero -> ID_GENERO : GENERO','Genero',3,'p_Genero','my_parser.py',19),
-  ('Areas -> ID_AREAS : AREAS','Areas',3,'p_Areas','my_parser.py',23),
-  ('Sin -> ID_SIN : TEXTO','Sin',3,'p_Sin','my_parser.py',28),
-  ('Sin -> <empty>','Sin',0,'p_Sin_vazio','my_parser.py',33),
-  ('Linguas -> ID_LINGUAS : NEWLINE Lingua','Linguas',4,'p_Linguas','my_parser.py',38),
-  ('Lingua -> TAB ID_LINGUA NOME NEWLINE Lingua','Lingua',5,'p_Lingua','my_parser.py',42),
-  ('Lingua -> <empty>','Lingua',0,'p_Lingua_vazio','my_parser.py',45),
-  ('Notas -> ID_NOTAS : TEXTO','Notas',3,'p_Notas','my_parser.py',49),
-  ('Notas -> <empty>','Notas',0,'p_Notas_vazio','my_parser.py',53),
+  ("S' -> Dic","S'",1,None,None,None),
+  ('Dic -> Entradas','Dic',1,'p_dic','my_parser.py',7),
+  ('Entradas -> Es Entradas','Entradas',2,'p_entradas','my_parser.py',11),
+  ('Entradas -> Es','Entradas',1,'p_entradas_ultimo','my_parser.py',15),
+  ('Es -> Id Nome Genero Areas Sin Linguas Notas','Es',7,'p_es','my_parser.py',19),
+  ('Es -> <empty>','Es',0,'p_es_vazio','my_parser.py',24),
+  ('Id -> ID NUMBER NEWLINE','Id',3,'p_Id','my_parser.py',28),
+  ('Nome -> ID_NOME : NOME NEWLINE','Nome',4,'p_Nome','my_parser.py',34),
+  ('Genero -> ID_GENERO : GENERO NEWLINE','Genero',4,'p_Genero','my_parser.py',40),
+  ('Areas -> ID_AREAS : AREAS NEWLINE','Areas',4,'p_Areas','my_parser.py',45),
+  ('Sin -> ID_SIN : TEXTO NEWLINE','Sin',4,'p_Sin','my_parser.py',51),
+  ('Sin -> <empty>','Sin',0,'p_Sin_vazio','my_parser.py',57),
+  ('Linguas -> ID_LINGUAS : NEWLINE Lingua','Linguas',4,'p_Linguas','my_parser.py',62),
+  ('Lingua -> TAB ID_LINGUA NOME NEWLINE Lingua','Lingua',5,'p_Lingua','my_parser.py',68),
+  ('Lingua -> <empty>','Lingua',0,'p_Lingua_vazio','my_parser.py',73),
+  ('Notas -> ID_NOTAS : TEXTO NEWLINE','Notas',4,'p_Notas','my_parser.py',77),
+  ('Notas -> <empty>','Notas',0,'p_Notas_vazio','my_parser.py',82),
 ]

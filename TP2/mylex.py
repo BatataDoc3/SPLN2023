@@ -11,7 +11,7 @@ def t_NEWLINE(t):
     r'\n'
 
 def t_ID(t):
-    r'ID'
+    r'ID:'
 
 def t_NUMBER(t):
     r'\d+'
@@ -48,3 +48,6 @@ def t_ID_LINGUA(t):
 
 def t_ID_NOTAS(t):
     r'NOTA'
+
+
+lexer = lex.lex()
