@@ -17,9 +17,11 @@ for line in fileinput.input():
 
 
 
+
 #0. Quebras de página
 regex_qp = r"(\n\n+)"
-text = re.sub(regex_qp, r"\n\n#Page Break\n\n", text)
+#text = re.sub(regex_qp, r"\n\n#Page Break\n\n", text)
+text = re.sub(regex_qp, r"\n", text)
 
 
 #2. Marcar capítulos
@@ -29,14 +31,14 @@ text = re.sub(regex_cap, r"\n# \1", text)
 
 
 #3. Separar parágrafos de linhas pequenas
-regex_par = r"((.|\n)+?\.)\n"
-text = re.sub(regex_par, r"§\1§", text)
+regex_par = r"(\n?# CAP[ÍI]TULO \w+\n.*\n)?((.|\n)+?[\.!?”])\n+"
+text = re.sub(regex_par, r"\1§\2§\n", text)
 
 
 
 #4. Juntar linhas da mesma frase
-#regex_line = r"§(.|\n)+?§"
-#text = re.sub(regex_line, r"\1", text)
+regex_line = r"(?<=[^§])\n|\n(?=[^§])"
+text = re.sub(regex_line, " ", text)
 #text = re.sub(regex_line, r"\n\3\n", text)
 
 
